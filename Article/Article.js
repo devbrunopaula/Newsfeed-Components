@@ -1,5 +1,3 @@
-/* This is the data we will be using to create our articles */
-/* Look over this data, then proceed to line 91*/
 const data = [
   {
     title: 'Lambda School Students: "We\'re the best!"',
@@ -88,6 +86,10 @@ const data = [
   }
 ];
 
+/* This is the data we will be using to create our articles */
+/* Look over this data, then proceed to line 91*/
+
+
 /* Step 1: Write a component called 'articleMaker' to create an article. You want your component to return markup like the template below: 
 
   <div class="article">
@@ -110,4 +112,56 @@ const data = [
   Step 4: Outside your function, loop over the data. At each iteration you'll use your component to create an article and append it to the DOM inside the 'articles' div.
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
+   
+
 */
+
+
+const articles = document.querySelector('.articles')
+
+function articleMaker(data){
+  // Creating
+  const  articleDiv   = document.createElement('div')
+  const  articleH2    = document.createElement('h2')
+  const  articleDate  = document.createElement('p')
+  const  contentP1    = document.createElement('p')
+  const  contentP2    = document.createElement('p')
+  const  contentP3    = document.createElement('p')
+  const  spanBtb      = document.createElement('span')
+ 
+  // Add Class
+  articleDiv.classList  = 'title'
+  articleDate.classList = "date"
+  spanBtb.classList     = "expandButton"
+  
+  // Add textContent
+  articleH2.textContent   = data.title
+  articleDate.textContent = data.date
+  contentP1.textContent   = data.firstParagraph
+  contentP2.textContent   = data.secondParagraph  
+  contentP3.textContent   = data.thirdParagraph
+  
+// AppendChild
+  articleDiv.appendChild(articleH2)
+  articleDiv.appendChild(articleDate)
+  articleDiv.appendChild(contentP1) 
+  articleDiv.appendChild(contentP2)
+  articleDiv.appendChild(contentP3)
+  articleDiv.appendChild(spanBtb)
+  
+  return articleDiv
+}
+
+data.forEach( e => {
+  const articleData = {
+   title: e.title, 
+   date: e.date, 
+   firstParagraph: e.firstParagraph, 
+   secondParagraph: e.secondParagraph, 
+   thirdParagraph: e.thirdParagraph
+  }
+ articles.appendChild(articleMaker(articleData))
+  
+})
+
+

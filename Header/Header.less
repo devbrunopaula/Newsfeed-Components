@@ -6,13 +6,25 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  top: 0;
-  z-index: 2;
-
-  h1 {
-    margin: 0;
-    font-size: 48px;
-  }
+  z-index: 3;
+ 
 }
 
+img {
+  cursor: pointer;
+
+    &:hover {
+       box-shadow: 1px 1px 8px white;
+       transition: 2s;
+    }
+
+}
+
+
+ .hover{
+
+  &:hover{
+    text-decoration: solid;
+    color: rgb(88, 175, 92);
+  }
+ }

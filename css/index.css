@@ -27,13 +27,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
-  top: 0;
-  z-index: 2;
+  z-index: 3;
 }
-.header h1 {
-  margin: 0;
-  font-size: 48px;
+img {
+  cursor: pointer;
+}
+img:hover {
+  box-shadow: 1px 1px 8px white;
+  transition: 2s;
+}
+.hover:hover {
+  text-decoration: solid;
+  color: #58af5c;
 }
 .articles {
   margin-top: 95px;
@@ -75,6 +80,60 @@
 }
 .article-open {
   height: 400px;
+}
+.card {
+  border-bottom: solid #e7e7e7;
+  padding: 1rem 3rem;
+  margin: 2rem;
+  box-shadow: 1px 5px 25px #d4d4d4;
+}
+.more-info {
+  background-color: transparent;
+  border: transparent;
+  font-size: 1.2rem;
+  border-radius: 1rem;
+  box-shadow: 0.5px 0.5px 5px 0.5px #388e3b;
+  padding: 0.4rem 0.9rem;
+  outline: none;
+  cursor: pointer;
+}
+.more-info:hover {
+  background-color: #388e3b;
+  color: white;
+  transition: 0.2s;
+}
+.container {
+  max-width: 1200px;
+  width: 90wv;
+  margin: auto;
+}
+.menu-button {
+  position: absolute;
+  left: 20px;
+  cursor: pointer;
+}
+.menu {
+  display: none;
+  position: fixed;
+  top: 75px;
+  left: 0;
+  width: 350px;
+  height: 100vh;
+  /* This give the height 100% of the screen or, '100% of View Height' */
+  background-color: #165f1a;
+  border-left: none;
+  border-bottom: none;
+  z-index: 2;
+  /* This set the layer level of the element, it has precendence over initial level of 1*/
+}
+.menu ul li {
+  list-style-type: none;
+  font-size: 32px;
+  padding: 30px 0;
+  text-align: center;
+}
+.menu--open {
+  display: block;
 }
 html,
 body {

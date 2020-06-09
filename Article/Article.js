@@ -118,6 +118,7 @@ const data = [
 
 
 const articles = document.querySelector('.articles')
+// articles.classList = 'articles, card'
 
 function articleMaker(data){
   // Creating
@@ -128,11 +129,12 @@ function articleMaker(data){
   const  contentP2    = document.createElement('p')
   const  contentP3    = document.createElement('p')
   const  spanBtb      = document.createElement('span')
- 
+  const  moreBtn      = document.createElement('button')
   // Add Class
-  articleDiv.classList  = 'title'
+  articleDiv.classList  = 'card'
   articleDate.classList = "date"
   spanBtb.classList     = "expandButton"
+  moreBtn.classList     = "more-info"
   
   // Add textContent
   articleH2.textContent   = data.title
@@ -140,7 +142,8 @@ function articleMaker(data){
   contentP1.textContent   = data.firstParagraph
   contentP2.textContent   = data.secondParagraph  
   contentP3.textContent   = data.thirdParagraph
-  
+  moreBtn.textContent     = 'read more'
+
 // AppendChild
   articleDiv.appendChild(articleH2)
   articleDiv.appendChild(articleDate)
@@ -148,11 +151,13 @@ function articleMaker(data){
   articleDiv.appendChild(contentP2)
   articleDiv.appendChild(contentP3)
   articleDiv.appendChild(spanBtb)
+  articleDiv.appendChild(moreBtn)
   
   return articleDiv
 }
 
 data.forEach( e => {
+
   const articleData = {
    title: e.title, 
    date: e.date, 
@@ -160,6 +165,7 @@ data.forEach( e => {
    secondParagraph: e.secondParagraph, 
    thirdParagraph: e.thirdParagraph
   }
+
  articles.appendChild(articleMaker(articleData))
   
 })

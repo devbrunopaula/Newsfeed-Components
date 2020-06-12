@@ -98,7 +98,7 @@ const data = [
 
     {three separate paragraph elements}
 
-    <span class='expandButton'></span>
+    <span class='expandButton'>info</span>
   </div>
 
   Hint: You will need to use createElement more than once here!
@@ -117,32 +117,43 @@ const data = [
 */
 
 
-const articles = document.querySelector('.articles')
-// articles.classList = 'articles, card'
+{/* <div class="article">
+<h2>{title of the article}</h2>
+<p class="date">{date of the article}</p>
+
+{three separate paragraph elements}
+
+<span class='expandButton'>info</span>
+</div> */
+}
+
+
 
 function articleMaker(data){
-  // Creating
+ console.log(data)
+
+
+  //  Creating
   const  articleDiv   = document.createElement('div')
   const  articleH2    = document.createElement('h2')
   const  articleDate  = document.createElement('p')
   const  contentP1    = document.createElement('p')
   const  contentP2    = document.createElement('p')
   const  contentP3    = document.createElement('p')
-  const  spanBtb      = document.createElement('span')
-  const  moreBtn      = document.createElement('button')
+  const  expandBtn    = document.createElement('span')
+
   // Add Class
-  articleDiv.classList  = 'card'
+  articleDiv.classList  = 'article'
   articleDate.classList = "date"
-  spanBtb.classList     = "expandButton"
-  moreBtn.classList     = "more-info"
-  
-  // Add textContent
+  expandBtn.classList   = "expandButton"
+ 
+     // Add textContent
   articleH2.textContent   = data.title
   articleDate.textContent = data.date
   contentP1.textContent   = data.firstParagraph
   contentP2.textContent   = data.secondParagraph  
   contentP3.textContent   = data.thirdParagraph
-  moreBtn.textContent     = 'read more'
+  expandBtn.textContent     = 'info'
 
 // AppendChild
   articleDiv.appendChild(articleH2)
@@ -150,24 +161,76 @@ function articleMaker(data){
   articleDiv.appendChild(contentP1) 
   articleDiv.appendChild(contentP2)
   articleDiv.appendChild(contentP3)
-  articleDiv.appendChild(spanBtb)
-  articleDiv.appendChild(moreBtn)
+  articleDiv.appendChild(expandBtn) 
+
+   
+  expandBtn.addEventListener( 'click', () => articleDiv.classList.toggle('article-open'))
+  
   
   return articleDiv
+
 }
 
-data.forEach( e => {
 
-  const articleData = {
-   title: e.title, 
-   date: e.date, 
-   firstParagraph: e.firstParagraph, 
-   secondParagraph: e.secondParagraph, 
-   thirdParagraph: e.thirdParagraph
-  }
+const articlesParent = document.querySelector('.articles')
+ 
 
- articles.appendChild(articleMaker(articleData))
+
+   data.forEach( e =>  articlesParent.appendChild(articleMaker(e)))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function articleMaker(data){
+//   // Creating
+//   const  articleDiv   = document.createElement('div')
+//   const  articleH2    = document.createElement('h2')
+//   const  articleDate  = document.createElement('p')
+//   const  contentP1    = document.createElement('p')
+//   const  contentP2    = document.createElement('p')
+//   const  contentP3    = document.createElement('p')
+//   const  moreBtn      = document.createElement('span')
+//   // const  moreBtn      = document.createElement('button')
+//   // Add Class
+//   articleDiv.classList  = 'card'
+//   articleDate.classList = "date"
+//   moreBtn.classList     = "mexpandButton"
   
-})
+  
+//   // Add textContent
+//   articleH2.textContent   = data.title
+//   articleDate.textContent = data.date
+//   contentP1.textContent   = data.firstParagraph
+//   contentP2.textContent   = data.secondParagraph  
+//   contentP3.textContent   = data.thirdParagraph
+//   moreBtn.textContent     = 'read more'
 
+// // AppendChild
+//   articleDiv.appendChild(articleH2)
+//   articleDiv.appendChild(articleDate)
+//   articleDiv.appendChild(contentP1) 
+//   articleDiv.appendChild(contentP2)
+//   articleDiv.appendChild(contentP3)
+//   articleDiv.appendChild(moreBtn) 
 
+//   moreBtn.addEventListener( 'click', () => articleDiv.classList.toggle('article-open')) 
+  
+//   return articleDiv
+// }

@@ -32,15 +32,15 @@ let menuItems = [
   Step 6: Use 'menuMaker' to create a menu using the 'menuItems' array, and append the returned markup to the DOM.
 */
 
-const header      = document.querySelector('.header')
-const menuBtn     = document.querySelector('.menu-button')
+const header  = document.querySelector('.header')
+const menuBtn = document.querySelector('.menu-button')
 
 
 function menuMaker(menuText){
   // Creating
-  const menuDiv  = document.createElement('div')
+  const menuDiv = document.createElement('div')
   
-  const menuUl   = document.createElement('ul')
+  const menuUl  = document.createElement('ul')
 
   // Add Css Class
   menuDiv.classList = "menu"
@@ -62,7 +62,6 @@ function menuMaker(menuText){
     menuDiv.classList.toggle('menu--open');
     
   })
-
 
   return menuDiv
 }
